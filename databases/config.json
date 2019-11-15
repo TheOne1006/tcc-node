@@ -1,0 +1,37 @@
+{
+  "development": {
+    "username": "root",
+    "password": null,
+    "database": "trans-tcc-dev",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "operatorsAliases": false,
+    "define": {
+      "charset": "utf8mb4",
+      "dialectOptions": {
+        "collate": "utf8mb4_general_ci"
+      }
+    }
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "trans-tcc-test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "prod": {
+    "username": "root",
+    "password": "W8UnSRjCCqz4JEdVw4",
+    "database": "tcc-service",
+    "host": "rm-bp125wn81demb3djuo.mysql.rds.aliyuncs.com",
+    "dialect": "mysql",
+    "operatorsAliases": false,
+    "define": {
+      "charset": "utf8mb4",
+      "dialectOptions": {
+        "collate": "utf8mb4_general_ci"
+      }
+    }
+  }
+}

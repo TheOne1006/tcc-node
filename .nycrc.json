@@ -1,0 +1,8 @@
+{
+  "exclude": [
+    "gen/*.js",
+    "test/**/*.js"
+  ],
+  "reporter": "html",
+  "sourceMap": true
+}

@@ -1,0 +1,34 @@
+{
+  "apps": [
+    {
+      "name": "server",
+      "script": "index.js",
+      "watch": false,
+      "instances": "2",
+      "env": {
+        "WITH_SERVER": "1",
+        "NODE_ENV": "production"
+      }
+    },
+    {
+      "name": "schedule",
+      "script": "index.js",
+      "watch": false,
+      "instances": "1",
+      "env": {
+        "WITH_SCHEDULE": "1",
+        "NODE_ENV": "production"
+      }
+    },
+    {
+      "name": "queue",
+      "script": "index.js",
+      "watch": false,
+      "instances": "1",
+      "env": {
+        "WITH_QUEUE": "1",
+        "NODE_ENV": "production"
+      }
+    }
+  ]
+}
