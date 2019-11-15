@@ -240,7 +240,7 @@ module.exports = (sequelize, DataTypes, BaseModel, core) => {
       type: DataTypes.TEXT,
       allowNull: true,
       defaultValue: '',
-      comment: '编程相应脚本, 可缺省',
+      comment: '编程响应脚本, 可缺省',
     },
     attemptLimit: {
       type: DataTypes.INTEGER,

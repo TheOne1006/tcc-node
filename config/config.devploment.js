@@ -2,7 +2,8 @@
 const redisStore = require('cache-manager-ioredis');
 
 const config = {
-  port: 9099,
+  rpcPort: 9099,
+  httpPort: 9098,
   bull: {
     prefix: 'tcc-dev',
     name: 'system',

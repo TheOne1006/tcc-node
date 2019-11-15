@@ -4,7 +4,8 @@ const rootPath = path.resolve(__dirname, '..');
 
 const config = {
   port: 9090,
-  server_type: 'rpc',
+  rpcPort: 7090,
+  httpPort: 9091,
   vmCacheLength: 30,
   sequelize: {
     dialect: 'mysql',

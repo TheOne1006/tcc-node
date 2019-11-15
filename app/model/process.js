@@ -29,7 +29,7 @@ module.exports = (sequelize, DataTypes, BaseModel) => {
     name: {
       type: DataTypes.STRING(225),
       allowNull: false,
-      comment: '进度标题',
+      comment: '进程标题',
     },
     key: {
       type: DataTypes.STRING(30),
@@ -43,7 +43,7 @@ module.exports = (sequelize, DataTypes, BaseModel) => {
     status: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
-      comment: 'ENABLE 1 激活 DISABLE 2',
+      comment: 'ENABLE true 激活 DISABLE false',
     },
     spacingMilliSeconds: {
       type: DataTypes.INTEGER,

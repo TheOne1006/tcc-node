@@ -4,6 +4,7 @@ module.exports = (sequelize, DataTypes, BaseModel) => {
   class ActionLog extends BaseModel {
 
   }
+
   ActionLog.init({
     id: {
       type: DataTypes.INTEGER,

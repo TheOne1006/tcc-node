@@ -1,6 +1,11 @@
 # TODO
 
 1. 通知
+  - 钉钉机器人
+  - 邮箱
+2. heroku demo
+3. github preview
+4. 补偿机制
 
 ## 20191115
 

@@ -5,7 +5,8 @@ const redisStore = require('cache-manager-ioredis');
 const rootPath = path.resolve(__dirname, '..');
 
 const config = {
-  port: 7090,
+  rpcPort: 7090,
+  httpPort: 7091,
   sequelize: {
     dialect: 'mysql',
     database: 'tcc-service',

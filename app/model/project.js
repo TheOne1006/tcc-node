@@ -1,7 +1,7 @@
 'use strict';
 
-const STATUS_ENABLE = 1;
-const STATUS_DISABLE = 2;
+const STATUS_ENABLE = true;
+const STATUS_DISABLE = false;
 
 
 module.exports = (sequelize, DataTypes, BaseModel) => {
@@ -16,16 +16,16 @@ module.exports = (sequelize, DataTypes, BaseModel) => {
     name: {
       type: DataTypes.STRING(30),
       allowNull: false,
-      comment: '应用名称',
+      comment: '项目名称',
     },
     key: {
       type: DataTypes.STRING(30),
       allowNull: false,
-      comment: '应用key',
+      comment: '项目key',
     },
     desc: {
       type: DataTypes.TEXT,
-      comment: '应用描述',
+      comment: '项目描述',
     },
     status: {
       type: DataTypes.BOOLEAN,

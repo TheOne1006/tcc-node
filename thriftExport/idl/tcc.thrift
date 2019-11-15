@@ -1,24 +1,37 @@
 
-namespace php App.Library.Thrift.Tcc
 
-// Projec
+/**
+ * Thrift files can namespace, package, or prefix their output in various
+ * target languages.
+ * 设置对应的命名空间
+ */
+namespace php App.Library.Thrift.Tcc
+namespace cl App.Library.Thrift.Tcc
+namespace java App.Library.Thrift.Tcc
+namespace perl App.Library.Thrift.Tcc
+
+
+// Project Model 的 状态
 enum ProjectStatusType {
+    // 激活
     ENABLE = 1,
+    // 禁用
     DISABLE = 2
 }
 
+// Project Model 属性
 struct ProjectModel {
+  // id
   1: required i32 id,
+  // 索引 唯一值
   2: required string key,
+  // 名称
   3: required string name,
+  // 描述
   4: optional string desc,
+  // 状态
   5: ProjectStatusType status,
 }
-
-
-// service ProjectService {
-//    void create(),
-// }
 
 // Process
 enum ProcessStatusType {
@@ -37,8 +50,6 @@ struct Process {
   8: ProcessStatusType status,
   9: string key,
 }
-
-
 
 exception ErrorMessage {
   1: string message,

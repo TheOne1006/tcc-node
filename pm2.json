@@ -1,12 +1,23 @@
 {
   "apps": [
     {
-      "name": "server",
+      "name": "rpc-server",
       "script": "index.js",
       "watch": false,
-      "instances": "2",
+      "instances": "1",
       "env": {
         "WITH_SERVER": "1",
+        "NODE_ENV": "production"
+      }
+    },
+    {
+      "name": "http-server",
+      "script": "index.js",
+      "watch": false,
+      "instances": "1",
+      "env": {
+        "WITH_SERVER": "1",
+        "SERVER_TYPE": "http",
         "NODE_ENV": "production"
       }
     },
