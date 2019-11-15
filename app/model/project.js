@@ -7,6 +7,16 @@ const STATUS_DISABLE = false;
 module.exports = (sequelize, DataTypes, BaseModel) => {
   class Project extends BaseModel {}
 
+  /**
+   * Project 项目
+   * 管理项目, 包含多个 `进程(process)`, `行为(action)`
+   * @memberof model
+   * @namespace Project
+   * @property {string}   name      - 项目名称
+   * @property {string}   key       - 项目key, 唯一不重复
+   * @property {string}   desc      - 描述
+   * @property {boolean}  status    - 状态 true 激活、false 禁用
+   */
   Project.init({
     id: {
       type: DataTypes.INTEGER,

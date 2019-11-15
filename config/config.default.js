@@ -3,7 +3,6 @@ const path = require('path');
 const rootPath = path.resolve(__dirname, '..');
 
 const config = {
-  port: 9090,
   rpcPort: 7090,
   httpPort: 9091,
   vmCacheLength: 30,

@@ -1,4 +1,32 @@
-'use strict';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: model/transaction-instance.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: model/transaction-instance.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict';
 
 const _ = require('lodash');
 const debug = require('debug')('app:model:transaction-instance');
@@ -86,12 +114,12 @@ module.exports = (sequelize, DataTypes, BaseModel) => {
           success: false,
         };
 
-        return (matchAction && matchAction.success) ? null : (
+        return (matchAction &amp;&amp; matchAction.success) ? null : (
           new ActionProgress(matchAction || padInitAction));
       }).filter(item => item);
 
       const needExecActionIds = needExecActionsInfo
-        .map(item => !item.success && item.id)
+        .map(item => !item.success &amp;&amp; item.id)
         .filter(item => item);
 
       const exportInfo = {
@@ -127,7 +155,7 @@ module.exports = (sequelize, DataTypes, BaseModel) => {
 
         let targetItem = originActionsInfoMatchItem || resultActionsInfoMatchItem;
 
-        if (originActionsInfoMatchItem && resultActionsInfoMatchItem) {
+        if (originActionsInfoMatchItem &amp;&amp; resultActionsInfoMatchItem) {
           targetItem = originActionsInfoMatchItem.success ? (
             originActionsInfoMatchItem) : {
             ...originActionsInfoMatchItem,
@@ -162,7 +190,7 @@ module.exports = (sequelize, DataTypes, BaseModel) => {
       allActionIsAllCompleted = currentActionIds.every((itemId) => {
         const matchActionInfo = _.find(nextUpdateActionInfo, { id: itemId });
 
-        return matchActionInfo && matchActionInfo.success;
+        return matchActionInfo &amp;&amp; matchActionInfo.success;
       });
 
 
@@ -170,7 +198,7 @@ module.exports = (sequelize, DataTypes, BaseModel) => {
       if (!allActionIsAllCompleted) {
         someActionIsGtattemptLimit = currentActionIds.some((itemId) => {
           const matchActionInfo = _.find(nextUpdateActionInfo, { id: itemId, success: false });
-          return matchActionInfo && (
+          return matchActionInfo &amp;&amp; (
             matchActionInfo.currentAttemptTime >= matchActionInfo.maxAttemptTime);
         });
       }
@@ -269,9 +297,9 @@ module.exports = (sequelize, DataTypes, BaseModel) => {
       const data = [];
 
       const len = array.length;
-      for (let index = 0; index < len; index += 1) {
+      for (let index = 0; index &lt; len; index += 1) {
         const ele = array[index];
-        if (ele && ele.id) {
+        if (ele &amp;&amp; ele.id) {
           const item = {
             id: ele.id,
             success: ele.success || false,
@@ -304,19 +332,19 @@ module.exports = (sequelize, DataTypes, BaseModel) => {
    * @property {string}           step                                - 当前步骤 / trying / confirming / cancelling
    * @property {object}           log                                 - 日志信息
    * @property {object}           payload                             - 数据载体
-   * @property {Array.<number>}   tryIds                              - TryAction 的 id集合
-   * @property {Array.<number>}   confirmIds                          - Confirm 关联 id集合
-   * @property {Array.<number>}   cancelIds                           - Cancel 关联 id集合
+   * @property {Array.&lt;number>}   tryIds                              - TryAction 的 id集合
+   * @property {Array.&lt;number>}   confirmIds                          - Confirm 关联 id集合
+   * @property {Array.&lt;number>}   cancelIds                           - Cancel 关联 id集合
    * @property {boolean}          tryAllCompleted                     - TRY行为是否全部通过
    * @property {boolean}          confirmAllCompleted                 - Confirm行为是否全部通过
    * @property {boolean}          cancelAllCompleted                  - Cancel行为是否全部通过
-   * @property {Array.<object>}   tryActionsInfo                      - TRY详细进度
+   * @property {Array.&lt;object>}   tryActionsInfo                      - TRY详细进度
    * @property {number}           tryActionsInfo.id                   - tryAction 的id
    * @property {boolean}          tryActionsInfo.success              - tryAction 是否执行成功
    * @property {number}           tryActionsInfo.maxAttemptTime       - tryAction 的最大允许执行次数
    * @property {number}           tryActionsInfo.currentAttemptTime   - tryAction 的当前执行次数
-   * @property {Array.<object>}   confirmActionsInfo                  - Confirm详细进度
-   * @property {Array.<object>}   cancelActionsInfo                   - Cancel详细进度
+   * @property {Array.&lt;object>}   confirmActionsInfo                  - Confirm详细进度
+   * @property {Array.&lt;object>}   cancelActionsInfo                   - Cancel详细进度
    * @property {number}           spacingMilliSeconds                 - 间隔毫秒,失败后再次执行的间隔
    *
    */
@@ -456,3 +484,26 @@ module.exports = (sequelize, DataTypes, BaseModel) => {
 
   return TransactionInstance;
 };
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="model.html">model</a></li><li><a href="model.Action.html">Action</a></li><li><a href="model.ActionLog.html">ActionLog</a></li><li><a href="model.Process.html">Process</a></li><li><a href="model.Project.html">Project</a></li><li><a href="model.TransactionInstance.html">TransactionInstance</a></li></ul><h3>Classes</h3><ul><li><a href="Action.html">Action</a></li><li><a href="ActionLog.html">ActionLog</a></li><li><a href="BaseModel.html">BaseModel</a></li><li><a href="BullSystemQueue.html">BullSystemQueue</a></li><li><a href="ProcessJob.html">ProcessJob</a></li><li><a href="TranTcc.html">TranTcc</a></li></ul><h3>Global</h3><ul><li><a href="global.html#createLogger">createLogger</a></li><li><a href="global.html#DEFAULT_MAX_ATTEMPT_TIME">DEFAULT_MAX_ATTEMPT_TIME</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Fri Nov 15 2019 18:18:39 GMT+0800 (GMT+08:00)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

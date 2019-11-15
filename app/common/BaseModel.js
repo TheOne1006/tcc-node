@@ -4,9 +4,13 @@ const Sequelize = require('sequelize');
 
 // const { STRING, INTEGER, DATE, BOOLEAN, TEXT } = Sequelize;
 
+/**
+ * @class
+ * BaseModel 项目的基础Model
+ */
 class BaseModel extends Sequelize.Model {
   /**
-   * 排除未找到错误
+   * 输出错误
    * @param  {String} msg 错误描述
    * @return {Error} error
    */
@@ -17,6 +21,12 @@ class BaseModel extends Sequelize.Model {
     return error;
   }
 
+  /**
+   * 查找一个实例, 未找到则报错
+   * @param {object} filter 过滤对象
+   * @return {object} 实例对象
+   * @throws {Error} 未找到相关数据的报错信息
+   */
   static async findOneOrThrow(filter) {
     const CurrentModel = this;
     const instance = await CurrentModel.findOne(filter);
@@ -26,6 +36,12 @@ class BaseModel extends Sequelize.Model {
     return instance;
   }
 
+  /**
+   * 通过id查找一个实例, 未找到则报错
+   * @param {object} filter 过滤对象
+   * @return {object} 实例对象
+   * @throws {Error} 未找到相关数据的报错信息
+   */
   static async findByPkOrThrow(id) {
     const CurrentModel = this;
     return CurrentModel.findOneOrThrow({ where: { id } });

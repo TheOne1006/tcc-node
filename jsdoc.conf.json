@@ -1,0 +1,17 @@
+{
+  "title": "node 版本的 tcc 服务",
+  "tags": {
+    "allowUnknownTags": true
+  },
+  "source": {
+    "includePattern": ".+\\.js(doc)?$",
+    "include": ["index.js", "app/"]
+  },
+  "plugins": [
+    "plugins/markdown"
+  ],
+  "templates": {
+    "cleverLinks": true,
+    "monospaceLinks": true
+  }
+}
