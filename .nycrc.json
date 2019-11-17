@@ -1,6 +1,6 @@
 {
   "exclude": [
-    "gen/*.js",
+    "thriftExport/gen/*.js",
     "test/**/*.js"
   ],
   "reporter": "html",

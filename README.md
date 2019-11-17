@@ -1,4 +1,9 @@
-[![Build Status](https://travis-ci.com/TheOne1006/tcc-node.svg?branch=master)](https://travis-ci.com/TheOne1006/tcc-node)
+
+[![build status][travis-image]][travis-url]
+[![Test coverage][codecov-image]][codecov-url]
+[![David deps][david-image]][david-url]
+[![Known Vulnerabilities][snyk-image]][snyk-url]
+[![npm download][download-image]][download-url]
 
 TCC 型事务 node 实现, 该项目为我在项目中需要, 处理商城与应用之间的资金处理所做。
 
