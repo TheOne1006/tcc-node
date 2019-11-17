@@ -10,12 +10,8 @@ const actions = require('../../mockData/default.action');
 describe('test/app/model/action.test.js', () => {
   // let app;
   before(async () => {
-    try {
-      await global.app.models.Action.sync({ force: true });
-      await global.app.models.Action.bulkCreate(actions);
-    } catch (error) {
-      console.error(error);
-    }
+    await global.app.models.Action.sync({ force: true });
+    await global.app.models.Action.bulkCreate(actions);
   });
 
   describe('resetRequestOptions', () => {

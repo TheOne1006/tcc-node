@@ -13,7 +13,7 @@ before_install:
 install:
   - npminstall
 script:
-  - yarn test
+  - yarn cov
 after_script:
   - npminstall codecov && codecov
 cache:
