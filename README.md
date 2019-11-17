@@ -1,5 +1,7 @@
 TCC 型事务 node 实现, 该项目为我在项目中需要, 处理商城与应用之间的资金处理所做。
 
+文档: <https://theone1006.github.io/tcc-node/>
+
 ## 基础
 
 > TCC事务机制简介
