@@ -195,7 +195,7 @@ module.exports = (sequelize, DataTypes, BaseModel, core) => {
       comment: '行为标题标题',
     },
     key: {
-      type: DataTypes.STRING(225),
+      type: DataTypes.STRING(50),
       allowNull: false,
       comment: '行为key',
     },
