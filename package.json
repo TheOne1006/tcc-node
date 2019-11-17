@@ -10,7 +10,7 @@
     "dev": "NODE_ENV=devploment WITH_QUEUE=1 WITH_SERVER=1 WITH_SCHEDULE=1 DEBUG=false node index.js",
     "start-pro": "NODE_ENV=production DEBUG=false pm2-runtime start pm2.json",
     "prod-stop": "NODE_ENV=production DEBUG=false pm2 stop index.js",
-    "test": "NODE_ENV=test DEBUG=false ./node_modules/.bin/mocha",
+    "test": "NODE_ENV=test ./node_modules/.bin/mocha",
     "cov": "NODE_ENV=test DEBUG=false nyc ./node_modules/.bin/mocha",
     "migrate:new": "npx sequelize migration:generate",
     "model:create": "npx sequelize-cli model:generate",
