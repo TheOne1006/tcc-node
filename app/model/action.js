@@ -206,6 +206,7 @@ module.exports = (sequelize, DataTypes, BaseModel, core) => {
     },
     desc: {
       type: DataTypes.TEXT,
+      allowNull: true,
       comment: '流程描述',
     },
     status: {
