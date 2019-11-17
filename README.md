@@ -3,7 +3,16 @@
 [![Test coverage][codecov-image]][codecov-url]
 [![David deps][david-image]][david-url]
 [![Known Vulnerabilities][snyk-image]][snyk-url]
-[![npm download][download-image]][download-url]
+
+[travis-image]: https://img.shields.io/travis/TheOne1006/tcc-node.svg?style=flat-square
+[travis-url]: https://travis-ci.org/TheOne1006/tcc-node
+[codecov-image]: https://img.shields.io/codecov/c/github/TheOne1006/tcc-node.svg?style=flat-square
+[codecov-url]: https://codecov.io/github/TheOne1006/tcc-node?branch=master
+[david-image]: https://img.shields.io/david/TheOne1006/tcc-node.svg?style=flat-square
+[david-url]: https://david-dm.org/TheOne1006/tcc-node
+[snyk-image]: https://snyk.io/test/npm/tcc-node/badge.svg?style=flat-square
+[snyk-url]: https://snyk.io/test/npm/tcc-node
+[download-image]: https://img.shields.io/npm/dm/tcc-node.svg?style=flat-square
 
 TCC 型事务 node 实现, 该项目为我在项目中需要, 处理商城与应用之间的资金处理所做。
 

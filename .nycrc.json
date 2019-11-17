@@ -1,7 +1,8 @@
 {
   "exclude": [
     "thriftExport/gen/*.js",
-    "test/**/*.js"
+    "test/**/*.js",
+    "config/*.js"
   ],
   "reporter": "html",
   "sourceMap": true
