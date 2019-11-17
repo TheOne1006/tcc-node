@@ -11,7 +11,7 @@ const httpServer = httpThrift.server;
 const TEST_RPC_PORT = 9090;
 const TEST_HTTP_PORT = 9091;
 
-const TEST_HOST = '127.0.0.1';
+const TEST_HOST = 'localhost';
 
 before(async () => {
   await rpcServer.listen(TEST_RPC_PORT, () => {

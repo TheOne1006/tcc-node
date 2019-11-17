@@ -1,7 +1,9 @@
 sudo: false
+os:
+  - linux
 services:
   - mysql
-  - redis-server
+  - redis
 language: node_js
 node_js:
   - "10.15.3"
