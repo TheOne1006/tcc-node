@@ -5,7 +5,7 @@ const config = {
   rpcPort: 9099,
   httpPort: 9098,
   bull: {
-    prefix: 'tcc-dev',
+    prefix: 'tcc_dev',
     name: 'system',
     redis: {
       host: 'localhost',
@@ -30,7 +30,7 @@ const config = {
         port: 6379,
         db: 5,
         ttl: 600, // 十分钟
-        valid: _ => _ !== null,
+        valid: (_) => _ !== null,
         keyPrefix: 'cache:',
       },
     },

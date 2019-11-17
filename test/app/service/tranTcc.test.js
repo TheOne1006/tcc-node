@@ -6,6 +6,8 @@ const { assert } = require('chai');
 
 const transactionInstances = require('../../mockData/default.transaction-instance');
 const actions = require('../../mockData/default.action');
+const projects = require('../../mockData/default.project');
+const processes = require('../../mockData/default.process');
 
 describe('test/app/service/tranTcc.test.js', () => {
   // let app;
@@ -15,6 +17,10 @@ describe('test/app/service/tranTcc.test.js', () => {
     await global.app.models.Action.sync({ force: true });
     await global.app.models.Action.bulkCreate(actions);
     await global.app.models.ActionLog.sync({ force: true });
+    await global.app.models.Project.sync({ force: true });
+    await global.app.models.Project.bulkCreate(projects);
+    await global.app.models.Process.sync({ force: true });
+    await global.app.models.Process.bulkCreate(processes);
   });
 
   describe('createInstance', () => {

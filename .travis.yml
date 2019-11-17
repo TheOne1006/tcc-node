@@ -6,7 +6,7 @@ language: node_js
 node_js:
   - "10.15.3"
 before_install:
-  - mysql -e 'CREATE DATABASE trans-tcc-test;'
+  - mysql -e 'CREATE DATABASE trans_tcc_test;'
   - npm i npminstall -g
 install:
   - npminstall

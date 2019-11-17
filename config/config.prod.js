@@ -9,7 +9,7 @@ const config = {
   httpPort: 7091,
   sequelize: {
     dialect: 'mysql',
-    database: 'tcc-service',
+    database: 'tcc_service',
     host: 'xxxxx',
     port: 3306,
     username: 'root',
@@ -51,7 +51,7 @@ const config = {
         password: 'xxxx',
         db: 12,
         ttl: 600, // 十分钟
-        valid: _ => _ !== null,
+        valid: (_) => _ !== null,
         keyPrefix: 'tcc-cache:',
       },
     },

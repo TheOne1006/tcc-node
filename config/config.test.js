@@ -4,7 +4,7 @@ const debug = require('debug')('app:sequelize');
 const config = {
   sequelize: {
     dialect: 'mysql',
-    database: 'trans-tcc-test',
+    database: 'trans_tcc_test',
     host: 'localhost',
     port: 3306,
     username: 'root',

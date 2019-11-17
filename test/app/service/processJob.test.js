@@ -20,6 +20,7 @@ describe('test/app/service/processJob.test.js', () => {
     await TransactionInstanceModel.sync({ force: true });
     await TransactionInstanceModel.bulkCreate(transactionInstances);
     await global.app.models.Action.sync({ force: true });
+    await global.app.models.ActionLog.sync({ force: true });
     await global.app.models.Action.bulkCreate(actions);
   });
 
