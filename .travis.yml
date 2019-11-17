@@ -1,0 +1,19 @@
+sudo: false
+services:
+  - mysql
+  - redis-server
+language: node_js
+node_js:
+  - "10.15.3"
+before_install:
+  - mysql -e 'CREATE DATABASE trans-tcc-test;'
+  - npm i npminstall -g
+install:
+  - npminstall
+script:
+  - yarn test
+after_script:
+  - npminstall codecov && codecov
+cache:
+  yarn: true
+
