@@ -1,6 +1,7 @@
 {
   "name": "tcc-node",
-  "version": "1.0.0",
+  "description": "node 版本的 tcc 事务",
+  "version": "1.0.2",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
