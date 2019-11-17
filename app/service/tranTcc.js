@@ -143,40 +143,56 @@ module.exports = (services, config, models, core) => {
      */
     static async singleActionExec(
       actionId,
-      payload,
-      messageId,
-      projectId,
-      proccessId,
-      currentAttemptTime,
+      payload = {},
+      messageId = '',
+      projectId = 0,
+      proccessId = 0,
+      currentAttemptTime = 0,
     ) {
-      const actionInstance = await Action.findByPkOrThrow(actionId);
+      try {
+        let resultData;
+        const actionInstance = await Action.findByPkOrThrow(actionId);
 
-      let resultData;
+        // 发送成功
+        switch (actionInstance.sendType) {
+        case Action.SEND_TYPE_HTTP_REQUEST:
+          resultData = await actionInstance.sendHttp(messageId, payload);
+          break;
+        default:
+          break;
+        }
 
-      switch (actionInstance.sendType) {
-      case Action.SEND_TYPE_HTTP_REQUEST:
-        resultData = await actionInstance.sendHttp(messageId, payload);
-        break;
-      default:
-        break;
+        const isMatch = await actionInstance.isMatchResult(resultData);
+
+        const actionLogInput = {
+          messageId,
+          projectId,
+          proccessId,
+          actionId,
+          isSuccess: resultData && isMatch,
+          payload,
+          repData: resultData,
+          currentAttemptTime: currentAttemptTime + 1,
+        };
+
+        const log = await ActionLog.create(actionLogInput);
+        return log;
+      } catch (error) {
+        // 记录异常
+        const actionLogInput = {
+          messageId,
+          projectId,
+          proccessId,
+          actionId,
+          isSuccess: false,
+          payload,
+          errorMessage: error.toString(),
+          currentAttemptTime: currentAttemptTime + 1,
+        };
+
+        const log = await ActionLog.create(actionLogInput);
+        return log;
       }
-
-      const isMatch = await actionInstance.isMatchResult(resultData);
-
-      const actionLogInput = {
-        messageId,
-        projectId,
-        proccessId,
-        actionId,
-        isSuccess: resultData && isMatch,
-        payload,
-        repData: resultData,
-        currentAttemptTime: currentAttemptTime + 1,
-      };
-
-      const log = await ActionLog.create(actionLogInput);
-
-      return log;
     }
 
     /**
@@ -193,7 +209,7 @@ module.exports = (services, config, models, core) => {
       const {
         // step,
         needExecActionsInfo,
-      } = instance.exportCurrentStep();
+      } = instance.getStepNeedExec();
 
       debug('needExecActionsInfo :%o', needExecActionsInfo);
 

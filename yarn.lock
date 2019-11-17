@@ -307,8 +307,8 @@
     "@types/istanbul-lib-report" "*"
 
 "@types/node@*":
-  version "12.0.2"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.0.2.tgz#3452a24edf9fea138b48fad4a0a028a683da1e40"
+  version "12.12.7"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.12.7.tgz#01e4ea724d9e3bd50d90c11fd5980ba317d8fa11"
 
 "@types/node@^8.0.7":
   version "8.10.48"
@@ -578,11 +578,7 @@ bluebird@^3.3.4, bluebird@^3.5.5:
   version "3.5.5"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.5.5.tgz#a8d0afd73251effbbd5fe384a77d73003c17a71f"
 
-bluebird@^3.5.0, bluebird@^3.5.3:
-  version "3.5.4"
-  resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.5.4.tgz#d6cc661595de30d5b3af5fcedd3c0b3ef6ec5714"
-
-bluebird@^3.5.4:
+bluebird@^3.5.0, bluebird@^3.5.4:
   version "3.7.1"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.7.1.tgz#df70e302b471d7473489acf26a93d63b53f874de"
 
@@ -3011,7 +3007,13 @@ mocha@^6.1.4:
     yargs-parser "13.0.0"
     yargs-unparser "1.5.0"
 
-moment-timezone@^0.5.21, moment-timezone@^0.5.25:
+moment-timezone@^0.5.21:
+  version "0.5.27"
+  resolved "https://registry.yarnpkg.com/moment-timezone/-/moment-timezone-0.5.27.tgz#73adec8139b6fe30452e78f210f27b1f346b8877"
+  dependencies:
+    moment ">= 2.9.0"
+
+moment-timezone@^0.5.25:
   version "0.5.25"
   resolved "https://registry.yarnpkg.com/moment-timezone/-/moment-timezone-0.5.25.tgz#a11bfa2f74e088327f2cd4c08b3e7bdf55957810"
   dependencies:
@@ -3904,7 +3906,7 @@ ret@~0.1.10:
   version "0.1.15"
   resolved "https://registry.yarnpkg.com/ret/-/ret-0.1.15.tgz#b8a4825d5bdb1fc3f6f53c2bc33f81388681c7bc"
 
-retry-as-promised@^3.1.0:
+retry-as-promised@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/retry-as-promised/-/retry-as-promised-3.2.0.tgz#769f63d536bec4783549db0777cb56dadd9d8543"
   dependencies:
@@ -3968,43 +3970,49 @@ sax@^1.2.4:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
 
-"semver@2 || 3 || 4 || 5", semver@^5.0.1, semver@^5.3.0, semver@^5.4.1, semver@^5.5.0, semver@^5.5.1, semver@^5.6.0, semver@^5.7.0:
+"semver@2 || 3 || 4 || 5", semver@^5.0.1, semver@^5.3.0, semver@^5.4.1, semver@^5.5.0, semver@^5.5.1, semver@^5.7.0:
   version "5.7.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.7.0.tgz#790a7cf6fea5459bac96110b29b60412dc8ff96b"
+
+semver@^5.6.0:
+  version "5.7.1"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-5.7.1.tgz#a954f931aeba508d307bbf069eff0c01c96116f7"
 
 semver@^6.0.0:
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-6.1.0.tgz#e95dc415d45ecf03f2f9f83b264a6b11f49c0cca"
 
+semver@^6.3.0:
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-6.3.0.tgz#ee0a64c8af5e8ceea67687b133761e1becbd1d3d"
+
 seq-queue@^0.0.5:
   version "0.0.5"
   resolved "https://registry.yarnpkg.com/seq-queue/-/seq-queue-0.0.5.tgz#d56812e1c017a6e4e7c3e3a37a1da6d78dd3c93e"
 
-sequelize-pool@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/sequelize-pool/-/sequelize-pool-1.0.2.tgz#89c767882bbdb8a41dac66922ed9820939a5401e"
-  dependencies:
-    bluebird "^3.5.3"
+sequelize-pool@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/sequelize-pool/-/sequelize-pool-2.3.0.tgz#64f1fe8744228172c474f530604b6133be64993d"
 
 sequelize@^5.8.6:
-  version "5.8.6"
-  resolved "https://registry.yarnpkg.com/sequelize/-/sequelize-5.8.6.tgz#22cd5b9443fa303552f925f99a08c9a5236f86cb"
+  version "5.21.2"
+  resolved "https://registry.yarnpkg.com/sequelize/-/sequelize-5.21.2.tgz#0daeee9bef37d49490b72a2c6891d53044f65a18"
   dependencies:
     bluebird "^3.5.0"
     cls-bluebird "^2.1.0"
     debug "^4.1.1"
     dottie "^2.0.0"
     inflection "1.12.0"
-    lodash "^4.17.11"
+    lodash "^4.17.15"
     moment "^2.24.0"
     moment-timezone "^0.5.21"
-    retry-as-promised "^3.1.0"
-    semver "^5.6.0"
-    sequelize-pool "^1.0.2"
+    retry-as-promised "^3.2.0"
+    semver "^6.3.0"
+    sequelize-pool "^2.3.0"
     toposort-class "^1.0.1"
-    uuid "^3.2.1"
+    uuid "^3.3.3"
     validator "^10.11.0"
-    wkx "^0.4.6"
+    wkx "^0.4.8"
 
 set-blocking@^2.0.0, set-blocking@~2.0.0:
   version "2.0.0"
@@ -4638,7 +4646,11 @@ utility@^1.16.1:
     mz "^2.7.0"
     unescape "^1.0.1"
 
-uuid@^3.2.1, uuid@^3.3.2:
+uuid@^3.2.1, uuid@^3.3.3:
+  version "3.3.3"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.3.3.tgz#4568f0216e78760ee1dbf3a4d2cf53e224112866"
+
+uuid@^3.3.2:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.3.2.tgz#1b4af4955eb3077c501c23872fc6513811587131"
 
@@ -4725,9 +4737,9 @@ win-release@^1.0.0:
   dependencies:
     semver "^5.0.1"
 
-wkx@^0.4.6:
-  version "0.4.6"
-  resolved "https://registry.yarnpkg.com/wkx/-/wkx-0.4.6.tgz#228ab592e6457382ea6fb79fc825058d07fce523"
+wkx@^0.4.8:
+  version "0.4.8"
+  resolved "https://registry.yarnpkg.com/wkx/-/wkx-0.4.8.tgz#a092cf088d112683fdc7182fd31493b2c5820003"
   dependencies:
     "@types/node" "*"
 

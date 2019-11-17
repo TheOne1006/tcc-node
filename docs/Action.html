@@ -93,7 +93,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="model_action.js.html">model/action.js</a>, <a href="model_action.js.html#line19">line 19</a>
+        <a href="model_action.js.html">model/action.js</a>, <a href="model_action.js.html#line20">line 20</a>
     </li></ul></dd>
     
 
@@ -127,6 +127,17 @@
     </div>
 
     
+        <h3 class="subsection-title">Extends</h3>
+
+        
+
+
+    <ul>
+        <li><a href="BaseModel.html">BaseModel</a></li>
+    </ul>
+
+
+    
 
     
 
@@ -149,7 +160,7 @@
     
 
     
-    <h4 class="name" id="collectResponseMatchScript"><span class="type-signature"></span>collectResponseMatchScript<span class="signature">(url, options)</span><span class="type-signature"> &rarr; {object}</span></h4>
+    <h4 class="name" id="collectResponseMatchScript"><span class="type-signature"></span>collectResponseMatchScript<span class="signature">(repData)</span><span class="type-signature"> &rarr; {object}</span></h4>
     
 
     
@@ -157,7 +168,7 @@
 
 
 <div class="description">
-    <p>脚本处理</p>
+    <p>脚本处理响应结果</p>
 </div>
 
 
@@ -193,30 +204,7 @@
 
         <tr>
             
-                <td class="name"><code>url</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>options</code></td>
+                <td class="name"><code>repData</code></td>
             
 
             <td class="type">
@@ -232,7 +220,7 @@
 
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>响应结果</p></td>
         </tr>
 
     
@@ -273,7 +261,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="model_action.js.html">model/action.js</a>, <a href="model_action.js.html#line100">line 100</a>
+        <a href="model_action.js.html">model/action.js</a>, <a href="model_action.js.html#line101">line 101</a>
     </li></ul></dd>
     
 
@@ -301,10 +289,6 @@
 <h5>Returns:</h5>
 
         
-<div class="param-desc">
-    <p>{repData}</p>
-</div>
-
 
 
 <dl>
@@ -339,7 +323,7 @@
 
 
 <div class="description">
-    <p>校验相应结果</p>
+    <p>是否符合预期结果</p>
 </div>
 
 
@@ -432,7 +416,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="model_action.js.html">model/action.js</a>, <a href="model_action.js.html#line129">line 129</a>
+        <a href="model_action.js.html">model/action.js</a>, <a href="model_action.js.html#line130">line 130</a>
     </li></ul></dd>
     
 
@@ -494,7 +478,7 @@
 
 
 <div class="description">
-    <p>判断结果是否满足条件</p>
+    <p>判断结果是否满足条件根据, 与<code>httpResponseMatchSuccess</code>相同</p>
 </div>
 
 
@@ -587,7 +571,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="model_action.js.html">model/action.js</a>, <a href="model_action.js.html#line141">line 141</a>
+        <a href="model_action.js.html">model/action.js</a>, <a href="model_action.js.html#line142">line 142</a>
     </li></ul></dd>
     
 
@@ -747,7 +731,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="model_action.js.html">model/action.js</a>, <a href="model_action.js.html#line26">line 26</a>
+        <a href="model_action.js.html">model/action.js</a>, <a href="model_action.js.html#line27">line 27</a>
     </li></ul></dd>
     
 
@@ -805,7 +789,7 @@
     
 
     
-    <h4 class="name" id="sendHttp"><span class="type-signature">(async) </span>sendHttp<span class="signature">(messageId, payload)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="sendHttp"><span class="type-signature">(async) </span>sendHttp<span class="signature">(messageId, payload)</span><span class="type-signature"> &rarr; {object}</span></h4>
     
 
     
@@ -929,7 +913,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="model_action.js.html">model/action.js</a>, <a href="model_action.js.html#line56">line 56</a>
+        <a href="model_action.js.html">model/action.js</a>, <a href="model_action.js.html#line58">line 58</a>
     </li></ul></dd>
     
 
@@ -954,6 +938,28 @@
 
 
 
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>响应体的 body</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">object</span>
+
+
+    </dd>
+</dl>
+
+    
 
 
 
@@ -975,13 +981,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="model.html">model</a></li><li><a href="model.Action.html">Action</a></li><li><a href="model.ActionLog.html">ActionLog</a></li><li><a href="model.Process.html">Process</a></li><li><a href="model.Project.html">Project</a></li><li><a href="model.TransactionInstance.html">TransactionInstance</a></li></ul><h3>Classes</h3><ul><li><a href="Action.html">Action</a></li><li><a href="ActionLog.html">ActionLog</a></li><li><a href="BaseModel.html">BaseModel</a></li><li><a href="BullSystemQueue.html">BullSystemQueue</a></li><li><a href="ProcessJob.html">ProcessJob</a></li><li><a href="TranTcc.html">TranTcc</a></li></ul><h3>Global</h3><ul><li><a href="global.html#createLogger">createLogger</a></li><li><a href="global.html#DEFAULT_MAX_ATTEMPT_TIME">DEFAULT_MAX_ATTEMPT_TIME</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="model.html">model</a></li><li><a href="model.Action.html">Action</a></li><li><a href="model.ActionLog.html">ActionLog</a></li><li><a href="model.Process.html">Process</a></li><li><a href="model.Project.html">Project</a></li><li><a href="model.TransactionInstance.html">TransactionInstance</a></li></ul><h3>Classes</h3><ul><li><a href="Action.html">Action</a></li><li><a href="ActionLog.html">ActionLog</a></li><li><a href="BaseModel.html">BaseModel</a></li><li><a href="BullSystemQueue.html">BullSystemQueue</a></li><li><a href="Process.html">Process</a></li><li><a href="ProcessJob.html">ProcessJob</a></li><li><a href="Project.html">Project</a></li><li><a href="TransactionInstance.html">TransactionInstance</a></li><li><a href="TranTcc.html">TranTcc</a></li></ul><h3>Global</h3><ul><li><a href="global.html#DEFAULT_MAX_ATTEMPT_TIME">DEFAULT_MAX_ATTEMPT_TIME</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Fri Nov 15 2019 18:18:39 GMT+0800 (GMT+08:00)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Sun Nov 17 2019 21:09:57 GMT+0800 (GMT+08:00)
 </footer>
 
 <script> prettyPrint(); </script>

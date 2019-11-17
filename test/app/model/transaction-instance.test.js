@@ -13,13 +13,13 @@ describe('test/app/model/transaction-instance.test.js', () => {
     await global.app.models.TransactionInstance.bulkCreate(transactionInstances);
   });
 
-  describe('exportCurrentStep', () => {
-    it('exportCurrentStep with empty step', async () => {
+  describe('getStepNeedExec', () => {
+    it('getStepNeedExec with empty step', async () => {
       const {
         TransactionInstance,
       } = global.app.models;
       const instance = await TransactionInstance.findByPk(1);
-      const actual = instance.exportCurrentStep();
+      const actual = instance.getStepNeedExec();
       const expected = {
         step: '',
         actionIds: [],
@@ -29,12 +29,12 @@ describe('test/app/model/transaction-instance.test.js', () => {
       assert.deepEqual(actual, expected);
     });
 
-    it('exportCurrentStep with try step', async () => {
+    it('getStepNeedExec with try step', async () => {
       const {
         TransactionInstance,
       } = global.app.models;
       const instance = await TransactionInstance.findByPk(2);
-      const actual = instance.exportCurrentStep();
+      const actual = instance.getStepNeedExec();
       const expected = {
         step: 'trying',
         actionIds: [2, 3],
@@ -56,12 +56,12 @@ describe('test/app/model/transaction-instance.test.js', () => {
       assert.deepEqual(actual, expected);
     });
 
-    it('exportCurrentStep with confirm step', async () => {
+    it('getStepNeedExec with confirm step', async () => {
       const {
         TransactionInstance,
       } = global.app.models;
       const instance = await TransactionInstance.findByPk(3);
-      const actual = instance.exportCurrentStep();
+      const actual = instance.getStepNeedExec();
       const expected = {
         step: 'confirming',
         actionIds: [4, 5, 6],
@@ -90,12 +90,12 @@ describe('test/app/model/transaction-instance.test.js', () => {
       assert.deepEqual(actual, expected);
     });
 
-    it('exportCurrentStep with cancel step', async () => {
+    it('getStepNeedExec with cancel step', async () => {
       const {
         TransactionInstance,
       } = global.app.models;
       const instance = await TransactionInstance.findByPk(4);
-      const actual = instance.exportCurrentStep();
+      const actual = instance.getStepNeedExec();
       const expected = {
         step: 'cancelling',
         actionIds: [7, 9],

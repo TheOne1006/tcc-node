@@ -4,6 +4,7 @@ module.exports = (sequelize, DataTypes, BaseModel) => {
   /**
    * @class
    * ActionLog Action 日志
+   * @extends BaseModel
    */
   class ActionLog extends BaseModel {
   }
@@ -21,6 +22,7 @@ module.exports = (sequelize, DataTypes, BaseModel) => {
    * @property {boolean}  isSuccess            - 是否成功
    * @property {object}   payload              - 请求数据载体
    * @property {object}   repData              - 响应体结果
+   * @property {string}   errorMessage         - 异常误信息
    * @property {number}   currentAttemptTime   - 当前尝试次数
    */
   ActionLog.init({
@@ -60,6 +62,10 @@ module.exports = (sequelize, DataTypes, BaseModel) => {
     },
     repData: {
       type: DataTypes.JSON,
+      comment: '相应结果',
+    },
+    errorMessage: {
+      type: DataTypes.TEXT,
       comment: '相应结果',
     },
     currentAttemptTime: {

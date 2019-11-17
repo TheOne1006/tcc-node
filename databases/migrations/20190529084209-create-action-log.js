@@ -48,6 +48,10 @@ module.exports = {
         type: Sequelize.JSON,
         comment: '相应结果',
       },
+      errorMessage: {
+        type: Sequelize.TEXT,
+        comment: '异常信息',
+      },
       currentAttemptTime: {
         type: Sequelize.INTEGER,
         defaultValue: 1,

@@ -4,6 +4,15 @@
  */
 const DEFAULT_MAX_ATTEMPT_TIME = 5;
 
+
+/**
+ * @typedef  {Object}  ActionProgress
+ * @property {number}  id                 - Action的id
+ * @property {boolean} success            - Action的结果是否成功
+ * @property {number}  currentAttemptTime - Action的当前尝试次数
+ * @property {number}  maxAttemptTime     - Action的最大允许尝试次数
+ */
+
 class ActionProgress {
   constructor(progress) {
     this.id = progress.id;

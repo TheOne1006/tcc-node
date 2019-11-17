@@ -5,7 +5,7 @@ const Sequelize = require('sequelize');
 // const { STRING, INTEGER, DATE, BOOLEAN, TEXT } = Sequelize;
 
 /**
- * @class
+ * @class BaseModel
  * BaseModel 项目的基础Model
  */
 class BaseModel extends Sequelize.Model {

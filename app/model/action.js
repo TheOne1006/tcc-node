@@ -15,6 +15,7 @@ module.exports = (sequelize, DataTypes, BaseModel, core) => {
   /**
    * @class
    * Action Model
+   * @extends BaseModel
    */
   class Action extends BaseModel {
     /**
@@ -52,6 +53,7 @@ module.exports = (sequelize, DataTypes, BaseModel, core) => {
      * 发送http请求
      * @param {string} messageId 消息id
      * @param {object} payload 请求信息载体
+     * @return {object} 响应体的 body
      */
     async sendHttp(messageId, payload) {
       const instance = this;
@@ -92,10 +94,9 @@ module.exports = (sequelize, DataTypes, BaseModel, core) => {
 
 
     /**
-     * 脚本处理
-     * @param {string} url
-     * @param {object} options
-     * @return {object} {repData}
+     * 脚本处理响应结果
+     * @param {object} repData 响应结果
+     * @return {object}
      */
     collectResponseMatchScript(repData) {
       const instance = this;
@@ -122,7 +123,7 @@ module.exports = (sequelize, DataTypes, BaseModel, core) => {
     }
 
     /**
-     * 校验相应结果
+     * 是否符合预期结果
      * @param {object} repData
      * @return {boolean}
      */
@@ -135,7 +136,7 @@ module.exports = (sequelize, DataTypes, BaseModel, core) => {
     }
 
     /**
-     * 判断结果是否满足条件
+     * 判断结果是否满足条件根据, 与`httpResponseMatchSuccess`相同
      * @param {object} repData
      */
     async matchResultWithTemplate(repData) {

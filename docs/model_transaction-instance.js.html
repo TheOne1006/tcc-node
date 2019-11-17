@@ -43,9 +43,22 @@ const STEP_CONFIRMING = 'confirming';
 const STEP_CANCELLING = 'cancelling';
 
 module.exports = (sequelize, DataTypes, BaseModel) => {
+  /**
+   * @class model TransactionInstance
+   * @extends BaseModel
+   */
   class TransactionInstance extends BaseModel {
     /**
-     * 获取当前步骤的相关信息
+     * 实例当前步骤和相关信息的集合
+     * @typedef  {Object}  getCurrentStepInfoReturn
+     * @property {String}         currentStep                 - 当前实例的步骤
+     * @property {Array.&lt;number>} actionIds                   - [当前action的id]
+     * @property {Array.&lt;ActionProgress>}  currentActionsInfo - [action进度总结]
+     */
+
+    /**
+     * 获取实例的当前步骤 和 相关信息集合
+     * @return {getCurrentStepInfoReturn}
      */
     getCurrentStepInfo() {
       const instance = this;
@@ -91,9 +104,18 @@ module.exports = (sequelize, DataTypes, BaseModel) => {
     }
 
     /**
-     * 暴露当前的步骤
+     * 实例当前步骤和相关信息的集合
+     * @typedef  {Object}  getStepNeedExecReturn
+     * @property {String}         step                         - 当前实例的步骤
+     * @property {Array.&lt;number>} currentActionIds             - [实例当前待执行的Action]
+     * @property {Array.&lt;ActionProgress>}  needExecActionsInfo - [实例当前待执行的Action简介集合]
      */
-    exportCurrentStep() {
+
+    /**
+     * 获取实例的当前步骤 需要执行的Action 和相关的集合信息
+     * @return {getStepNeedExecReturn}
+     */
+    getStepNeedExec() {
       const instance = this;
 
       debug('instance :%o', instance);
@@ -134,10 +156,16 @@ module.exports = (sequelize, DataTypes, BaseModel) => {
     }
 
     /**
-     * 获取当前步骤更新的 action 详情信息
-     * @param {*} actionsResultInfo  各个action的结果
+     * 将结果信息集合合并生成相应的 `ActionInfo` 字段
+     *
+     * @param {Object[]} resultInfo                    - 结果信息集合
+     * @param {number} resultInfo[].id                 - Action的id
+     * @param {boolean} resultInfo[].success           - Action的结果是否成功
+     * @param {number} resultInfo[].currentAttemptTime - Action的当前尝试次数
+     * @param {number} resultInfo[].maxAttemptTime     - Action的最大允许尝试次数
+     * @return {Array.&lt;ActionProgress>} action的进度集合
      */
-    mergeCurrentStepUpdateActionInfo(actionsResultInfo) {
+    mergeCurrentStepUpdateActionInfo(resultInfo) {
       const instance = this;
       const {
         currentActionIds: actionIds,
@@ -151,7 +179,7 @@ module.exports = (sequelize, DataTypes, BaseModel) => {
        */
       const nextActionsInfo = actionIds.map((actionId) => {
         const originActionsInfoMatchItem = _.find(originActionsInfo, { id: actionId });
-        const resultActionsInfoMatchItem = _.find(actionsResultInfo, { id: actionId });
+        const resultActionsInfoMatchItem = _.find(resultInfo, { id: actionId });
 
         let targetItem = originActionsInfoMatchItem || resultActionsInfoMatchItem;
 
@@ -170,17 +198,22 @@ module.exports = (sequelize, DataTypes, BaseModel) => {
 
 
     /**
-     * 生成下一步的操作
+     * 生成下一步的数据
      * createGoNextData
+     * @param {Array.&lt;object>} resultInfo              - 结果信息集合
+     * @param {number} resultInfo[].id                 - Action的id
+     * @param {boolean} resultInfo[].success           - Action的结果是否成功
+     * @param {number} resultInfo[].currentAttemptTime - Action的当前尝试次数
+     * @param {number} resultInfo[].maxAttemptTime     - Action的最大允许尝试次数
      */
-    createGoNextData(actionsResultInfo) {
+    createGoNextData(resultInfo) {
       const instance = this;
       const {
         currentStep: originStep,
         currentActionIds,
       } = instance.getCurrentStepInfo();
 
-      const nextUpdateActionInfo = instance.mergeCurrentStepUpdateActionInfo(actionsResultInfo);
+      const nextUpdateActionInfo = instance.mergeCurrentStepUpdateActionInfo(resultInfo);
 
       let allActionIsAllCompleted = false; // 所有action 全部成功
       let someActionIsGtattemptLimit = false; // 是否有行为超出最大重试次数
@@ -494,13 +527,13 @@ module.exports = (sequelize, DataTypes, BaseModel) => {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="model.html">model</a></li><li><a href="model.Action.html">Action</a></li><li><a href="model.ActionLog.html">ActionLog</a></li><li><a href="model.Process.html">Process</a></li><li><a href="model.Project.html">Project</a></li><li><a href="model.TransactionInstance.html">TransactionInstance</a></li></ul><h3>Classes</h3><ul><li><a href="Action.html">Action</a></li><li><a href="ActionLog.html">ActionLog</a></li><li><a href="BaseModel.html">BaseModel</a></li><li><a href="BullSystemQueue.html">BullSystemQueue</a></li><li><a href="ProcessJob.html">ProcessJob</a></li><li><a href="TranTcc.html">TranTcc</a></li></ul><h3>Global</h3><ul><li><a href="global.html#createLogger">createLogger</a></li><li><a href="global.html#DEFAULT_MAX_ATTEMPT_TIME">DEFAULT_MAX_ATTEMPT_TIME</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="model.html">model</a></li><li><a href="model.Action.html">Action</a></li><li><a href="model.ActionLog.html">ActionLog</a></li><li><a href="model.Process.html">Process</a></li><li><a href="model.Project.html">Project</a></li><li><a href="model.TransactionInstance.html">TransactionInstance</a></li></ul><h3>Classes</h3><ul><li><a href="Action.html">Action</a></li><li><a href="ActionLog.html">ActionLog</a></li><li><a href="BaseModel.html">BaseModel</a></li><li><a href="BullSystemQueue.html">BullSystemQueue</a></li><li><a href="Process.html">Process</a></li><li><a href="ProcessJob.html">ProcessJob</a></li><li><a href="Project.html">Project</a></li><li><a href="TransactionInstance.html">TransactionInstance</a></li><li><a href="TranTcc.html">TranTcc</a></li></ul><h3>Global</h3><ul><li><a href="global.html#DEFAULT_MAX_ATTEMPT_TIME">DEFAULT_MAX_ATTEMPT_TIME</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Fri Nov 15 2019 18:18:39 GMT+0800 (GMT+08:00)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Sun Nov 17 2019 21:09:57 GMT+0800 (GMT+08:00)
 </footer>
 
 <script> prettyPrint(); </script>

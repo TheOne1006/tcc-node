@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: common/BaseModel.js</title>
+    <title>JSDoc: Class: Project</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,69 +17,148 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: common/BaseModel.js</h1>
+    <h1 class="page-title">Class: Project</h1>
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>'use strict';
+        <h2><span class="attribs"><span class="type-signature"></span></span>Project<span class="signature">()</span><span class="type-signature"></span></h2>
+        
+            <div class="class-description"><p>Project Model</p></div>
+        
+    
+</header>
 
-const Sequelize = require('sequelize');
+<article>
+    <div class="container-overview">
+    
+        
 
-// const { STRING, INTEGER, DATE, BOOLEAN, TEXT } = Sequelize;
+    
+    <h2>Constructor</h2>
+    
 
-/**
- * @class BaseModel
- * BaseModel 项目的基础Model
- */
-class BaseModel extends Sequelize.Model {
-  /**
-   * 输出错误
-   * @param  {String} msg 错误描述
-   * @return {Error} error
-   */
-  static errorModelNotFound(msg = 'Error Model', code = 'MODEL_ERROR') {
-    const error = new Error(msg);
-    error.statusCode = 404;
-    error.code = code;
-    return error;
-  }
+    
+    <h4 class="name" id="Project"><span class="type-signature"></span>new Project<span class="signature">()</span><span class="type-signature"></span></h4>
+    
 
-  /**
-   * 查找一个实例, 未找到则报错
-   * @param {object} filter 过滤对象
-   * @return {object} 实例对象
-   * @throws {Error} 未找到相关数据的报错信息
-   */
-  static async findOneOrThrow(filter) {
-    const CurrentModel = this;
-    const instance = await CurrentModel.findOne(filter);
-    if (!instance) {
-      throw BaseModel.errorModelNotFound('Not found Model', 'MODEL_NOT_FOUND');
-    }
-    return instance;
-  }
+    
 
-  /**
-   * 通过id查找一个实例, 未找到则报错
-   * @param {object} filter 过滤对象
-   * @return {object} 实例对象
-   * @throws {Error} 未找到相关数据的报错信息
-   */
-  static async findByPkOrThrow(id) {
-    const CurrentModel = this;
-    return CurrentModel.findOneOrThrow({ where: { id } });
-  }
-}
 
-module.exports = BaseModel;
-</code></pre>
-        </article>
-    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="model_project.js.html">model/project.js</a>, <a href="model_project.js.html#line13">line 13</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+        <h3 class="subsection-title">Extends</h3>
+
+        
+
+
+    <ul>
+        <li><a href="BaseModel.html">BaseModel</a></li>
+    </ul>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 

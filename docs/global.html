@@ -162,33 +162,38 @@
     
 
     
-        <h3 class="subsection-title">Methods</h3>
+
+    
+        <h3 class="subsection-title">Type Definitions</h3>
 
         
+                
+<h4 class="name" id="ActionProgress">ActionProgress</h4>
+
+
+
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
             
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
 
     
 
-    
-    <h4 class="name" id="createLogger"><span class="type-signature"></span>createLogger<span class="signature">(config, {constlogConfig)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
+<table class="props">
     <thead>
     <tr>
         
@@ -200,8 +205,6 @@
         
 
         
-        <th>Default</th>
-        
 
         <th class="last">Description</th>
     </tr>
@@ -212,75 +215,97 @@
 
         <tr>
             
-                <td class="name"><code>config</code></td>
+                <td class="name"><code>id</code></td>
             
 
             <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
             
             </td>
 
             
 
             
-                <td class="default">
-                
-                </td>
-            
 
-            <td class="description last"></td>
+            <td class="description last"><p>Action的id</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>{constlogConfig</code></td>
+                <td class="name"><code>success</code></td>
             
 
             <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
             
             </td>
 
             
 
             
-                <td class="default">
-                
-                    config;const{defaultCategory}=logConfig;log4js.configure(logConfig
-                
-                </td>
-            
 
-            <td class="description last"></td>
+            <td class="description last"><p>Action的结果是否成功</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>;returnlog4js.getLogger(defaultCategory</code></td>
+                <td class="name"><code>currentAttemptTime</code></td>
             
 
             <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
             
             </td>
 
             
 
             
-                <td class="default">
-                
-                </td>
+
+            <td class="description last"><p>Action的当前尝试次数</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>maxAttemptTime</code></td>
             
 
-            <td class="description last"></td>
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Action的最大允许尝试次数</p></td>
         </tr>
 
     
     </tbody>
 </table>
-
-
 
 
 
@@ -314,7 +339,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="core_logger.js.html">core/logger.js</a>, <a href="core_logger.js.html#line9">line 9</a>
+        <a href="help_ActionProgress.js.html">help/ActionProgress.js</a>, <a href="help_ActionProgress.js.html#line8">line 8</a>
     </li></ul></dd>
     
 
@@ -330,23 +355,347 @@
 
 
 
+            
+                
+<h4 class="name" id="getCurrentStepInfoReturn">getCurrentStepInfoReturn</h4>
+
+
+
+
+<div class="description">
+    <p>实例当前步骤和相关信息的集合</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
 
 
 
 
 
+    <h5 class="subsection-title">Properties:</h5>
 
-
-
-
-
-
-
-
-
-        
     
 
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>currentStep</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>当前实例的步骤</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>actionIds</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;number></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>[当前action的id]</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>currentActionsInfo</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;<a href="global.html#ActionProgress">ActionProgress</a>></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>[action进度总结]</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="model_transaction-instance.js.html">model/transaction-instance.js</a>, <a href="model_transaction-instance.js.html#line23">line 23</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+            
+                
+<h4 class="name" id="getStepNeedExecReturn">getStepNeedExecReturn</h4>
+
+
+
+
+<div class="description">
+    <p>实例当前步骤和相关信息的集合</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>step</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>当前实例的步骤</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>currentActionIds</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;number></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>[实例当前待执行的Action]</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>needExecActionsInfo</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;<a href="global.html#ActionProgress">ActionProgress</a>></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>[实例当前待执行的Action简介集合]</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="model_transaction-instance.js.html">model/transaction-instance.js</a>, <a href="model_transaction-instance.js.html#line78">line 78</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+            
     
 
     
@@ -360,13 +709,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="model.html">model</a></li><li><a href="model.Action.html">Action</a></li><li><a href="model.ActionLog.html">ActionLog</a></li><li><a href="model.Process.html">Process</a></li><li><a href="model.Project.html">Project</a></li><li><a href="model.TransactionInstance.html">TransactionInstance</a></li></ul><h3>Classes</h3><ul><li><a href="Action.html">Action</a></li><li><a href="ActionLog.html">ActionLog</a></li><li><a href="BaseModel.html">BaseModel</a></li><li><a href="BullSystemQueue.html">BullSystemQueue</a></li><li><a href="ProcessJob.html">ProcessJob</a></li><li><a href="TranTcc.html">TranTcc</a></li></ul><h3>Global</h3><ul><li><a href="global.html#createLogger">createLogger</a></li><li><a href="global.html#DEFAULT_MAX_ATTEMPT_TIME">DEFAULT_MAX_ATTEMPT_TIME</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="model.html">model</a></li><li><a href="model.Action.html">Action</a></li><li><a href="model.ActionLog.html">ActionLog</a></li><li><a href="model.Process.html">Process</a></li><li><a href="model.Project.html">Project</a></li><li><a href="model.TransactionInstance.html">TransactionInstance</a></li></ul><h3>Classes</h3><ul><li><a href="Action.html">Action</a></li><li><a href="ActionLog.html">ActionLog</a></li><li><a href="BaseModel.html">BaseModel</a></li><li><a href="BullSystemQueue.html">BullSystemQueue</a></li><li><a href="Process.html">Process</a></li><li><a href="ProcessJob.html">ProcessJob</a></li><li><a href="Project.html">Project</a></li><li><a href="TransactionInstance.html">TransactionInstance</a></li><li><a href="TranTcc.html">TranTcc</a></li></ul><h3>Global</h3><ul><li><a href="global.html#DEFAULT_MAX_ATTEMPT_TIME">DEFAULT_MAX_ATTEMPT_TIME</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Fri Nov 15 2019 18:18:39 GMT+0800 (GMT+08:00)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Sun Nov 17 2019 21:09:57 GMT+0800 (GMT+08:00)
 </footer>
 
 <script> prettyPrint(); </script>

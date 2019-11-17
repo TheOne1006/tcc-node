@@ -5,6 +5,11 @@ const STATUS_DISABLE = false;
 
 
 module.exports = (sequelize, DataTypes, BaseModel) => {
+  /**
+   * @class
+   * Project Model
+   * @extends BaseModel
+   */
   class Project extends BaseModel {}
 
   /**

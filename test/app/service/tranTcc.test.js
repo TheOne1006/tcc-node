@@ -115,6 +115,31 @@ describe('test/app/service/tranTcc.test.js', () => {
 
 
   describe('singleActionExec', () => {
+    it('singleActionExec throw error', async () => {
+      const log = await global.app.services.TranTcc.singleActionExec(
+        2220,
+      );
+
+      const actual = log.toJSON();
+      delete actual.createdAt;
+      delete actual.updatedAt;
+      delete actual.id;
+      delete actual.version;
+
+      const expected = {
+        messageId: '',
+        projectId: 0,
+        proccessId: 0,
+        isSuccess: false,
+        actionId: 2220,
+        payload: {},
+        currentAttemptTime: 1,
+        errorMessage: 'Error: Not found Model',
+      };
+
+      assert.deepEqual(actual, expected);
+    });
+
     it('singleActionExec failed', async () => {
       nock('http://test-try1.com')
         .post('/', { messageId: 'message-id-singleActionExec-21', t: 'test', b: 'b' })

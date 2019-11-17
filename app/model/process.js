@@ -1,6 +1,11 @@
 'use strict';
 
 module.exports = (sequelize, DataTypes, BaseModel) => {
+  /**
+   * @class
+   * Process Model
+   * @extends BaseModel
+   */
   class Process extends BaseModel {}
 
   /**

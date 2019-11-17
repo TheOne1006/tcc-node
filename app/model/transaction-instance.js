@@ -15,9 +15,22 @@ const STEP_CONFIRMING = 'confirming';
 const STEP_CANCELLING = 'cancelling';
 
 module.exports = (sequelize, DataTypes, BaseModel) => {
+  /**
+   * @class model TransactionInstance
+   * @extends BaseModel
+   */
   class TransactionInstance extends BaseModel {
     /**
-     * 获取当前步骤的相关信息
+     * 实例当前步骤和相关信息的集合
+     * @typedef  {Object}  getCurrentStepInfoReturn
+     * @property {String}         currentStep                 - 当前实例的步骤
+     * @property {Array.<number>} actionIds                   - [当前action的id]
+     * @property {Array.<ActionProgress>}  currentActionsInfo - [action进度总结]
+     */
+
+    /**
+     * 获取实例的当前步骤 和 相关信息集合
+     * @return {getCurrentStepInfoReturn}
      */
     getCurrentStepInfo() {
       const instance = this;
@@ -63,9 +76,18 @@ module.exports = (sequelize, DataTypes, BaseModel) => {
     }
 
     /**
-     * 暴露当前的步骤
+     * 实例当前步骤和相关信息的集合
+     * @typedef  {Object}  getStepNeedExecReturn
+     * @property {String}         step                         - 当前实例的步骤
+     * @property {Array.<number>} currentActionIds             - [实例当前待执行的Action]
+     * @property {Array.<ActionProgress>}  needExecActionsInfo - [实例当前待执行的Action简介集合]
      */
-    exportCurrentStep() {
+
+    /**
+     * 获取实例的当前步骤 需要执行的Action 和相关的集合信息
+     * @return {getStepNeedExecReturn}
+     */
+    getStepNeedExec() {
       const instance = this;
 
       debug('instance :%o', instance);
@@ -106,10 +128,16 @@ module.exports = (sequelize, DataTypes, BaseModel) => {
     }
 
     /**
-     * 获取当前步骤更新的 action 详情信息
-     * @param {*} actionsResultInfo  各个action的结果
+     * 将结果信息集合合并生成相应的 `ActionInfo` 字段
+     *
+     * @param {Object[]} resultInfo                    - 结果信息集合
+     * @param {number} resultInfo[].id                 - Action的id
+     * @param {boolean} resultInfo[].success           - Action的结果是否成功
+     * @param {number} resultInfo[].currentAttemptTime - Action的当前尝试次数
+     * @param {number} resultInfo[].maxAttemptTime     - Action的最大允许尝试次数
+     * @return {Array.<ActionProgress>} action的进度集合
      */
-    mergeCurrentStepUpdateActionInfo(actionsResultInfo) {
+    mergeCurrentStepUpdateActionInfo(resultInfo) {
       const instance = this;
       const {
         currentActionIds: actionIds,
@@ -123,7 +151,7 @@ module.exports = (sequelize, DataTypes, BaseModel) => {
        */
       const nextActionsInfo = actionIds.map((actionId) => {
         const originActionsInfoMatchItem = _.find(originActionsInfo, { id: actionId });
-        const resultActionsInfoMatchItem = _.find(actionsResultInfo, { id: actionId });
+        const resultActionsInfoMatchItem = _.find(resultInfo, { id: actionId });
 
         let targetItem = originActionsInfoMatchItem || resultActionsInfoMatchItem;
 
@@ -142,17 +170,22 @@ module.exports = (sequelize, DataTypes, BaseModel) => {
 
 
     /**
-     * 生成下一步的操作
+     * 生成下一步的数据
      * createGoNextData
+     * @param {Array.<object>} resultInfo              - 结果信息集合
+     * @param {number} resultInfo[].id                 - Action的id
+     * @param {boolean} resultInfo[].success           - Action的结果是否成功
+     * @param {number} resultInfo[].currentAttemptTime - Action的当前尝试次数
+     * @param {number} resultInfo[].maxAttemptTime     - Action的最大允许尝试次数
      */
-    createGoNextData(actionsResultInfo) {
+    createGoNextData(resultInfo) {
       const instance = this;
       const {
         currentStep: originStep,
         currentActionIds,
       } = instance.getCurrentStepInfo();
 
-      const nextUpdateActionInfo = instance.mergeCurrentStepUpdateActionInfo(actionsResultInfo);
+      const nextUpdateActionInfo = instance.mergeCurrentStepUpdateActionInfo(resultInfo);
 
       let allActionIsAllCompleted = false; // 所有action 全部成功
       let someActionIsGtattemptLimit = false; // 是否有行为超出最大重试次数
