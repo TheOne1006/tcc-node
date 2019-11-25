@@ -4,7 +4,7 @@
 [![David deps][david-image]][david-url]
 
 [travis-image]: https://img.shields.io/travis/TheOne1006/tcc-node.svg?style=flat-square
-[travis-url]: https://travis-ci.org/TheOne1006/tcc-node
+[travis-url]: https://travis-ci.org/TheOne1006/tcc-node.svg?branch=master
 [codecov-image]: https://img.shields.io/codecov/c/github/TheOne1006/tcc-node.svg?style=flat-square
 [codecov-url]: https://codecov.io/github/TheOne1006/tcc-node?branch=master
 [david-image]: https://img.shields.io/david/TheOne1006/tcc-node.svg?style=flat-square
