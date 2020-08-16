@@ -31,7 +31,7 @@
     "cache-manager": "^2.10.1",
     "cache-manager-ioredis": "^1.0.1",
     "debug": "^4.1.1",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.20",
     "log4js": "^6.0.0",
     "lru-cache": "^5.1.1",
     "mapper-json": "^0.0.3",
