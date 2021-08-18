@@ -29,7 +29,7 @@
     "bluebird": "^3.7.1",
     "bull": "3.12.1",
     "cache-manager": "^2.10.1",
-    "cache-manager-ioredis": "^1.0.1",
+    "cache-manager-ioredis": "^2.0.0",
     "debug": "^4.1.1",
     "lodash": "^4.17.15",
     "log4js": "^6.0.0",
