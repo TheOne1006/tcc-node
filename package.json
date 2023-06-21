@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "bluebird": "^3.7.1",
-    "bull": "3.12.1",
+    "bull": "3.17.0",
     "cache-manager": "^2.10.1",
     "cache-manager-ioredis": "^1.0.1",
     "debug": "^4.1.1",
@@ -38,7 +38,7 @@
     "moment": "^2.24.0",
     "mysql2": "^2.0.0",
     "node-schedule": "^1.3.2",
-    "sequelize": "^5.8.6",
+    "sequelize": "^6.1.0",
     "thrift": "^0.12.0",
     "urllib": "^2.34.1"
   },
